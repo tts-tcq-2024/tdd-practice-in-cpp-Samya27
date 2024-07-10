@@ -35,7 +35,7 @@ std::string ReplaceWithCommas(const std::string& input, const std::string& delim
 }
 
 
-std::string FindSum(std::stringstream& ss){
+int FindSum(std::stringstream& ss){
     std::string segment;
     int sum = 0;
     std::vector<int> negatives;
@@ -43,7 +43,7 @@ std::string FindSum(std::stringstream& ss){
     while (std::getline(ss, segment, ',')) {
         int number = std::stoi(segment);
         if (number < 0) {
-            negatives.push_back(number);
+            throw std::runtime_error("negatives not allowed");
         } else if (number <= 1000) {
             sum += number;
         }
@@ -51,17 +51,15 @@ std::string FindSum(std::stringstream& ss){
     return sum;
 }
 
-void FindNegatives(std::vector<int>& negatives{
-        // If there are negative numbers, throw an exception
-    if (!negatives.empty()) {
-        std::stringstream ss;
-        ss << "negatives not allowed:";
-        for (int num : negatives) {
-            ss << " " << num;
-        }
-        throw std::invalid_argument(ss.str());
-    }
-}
+// bool FindNegatives(int num){
+//         // If there are negative numbers, throw an exception
+//         if (number < 0) {
+//             throw std::runtime_error("negatives not allowed");
+//         }
+//         ss << "negatives not allowed:";
+//         throw std::invalid_argument(ss.str());
+//     }
+// }
 
 int StringCalculator::add(const std::string& input) 
 {
@@ -78,7 +76,7 @@ int StringCalculator::add(const std::string& input)
 
     sum = FindSum(ss);
 
-    FindNegatives(negatives);
+    //FindNegatives(negatives);
 
     return sum;
 }
