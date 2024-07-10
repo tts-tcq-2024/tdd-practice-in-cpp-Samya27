@@ -2,7 +2,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <vector>
-#include StringCalculator.h
+#include "StringCalculator.h"
 
 std::string FindDelimeter(const std::string& input)
 {
@@ -35,7 +35,7 @@ std::string ReplaceWithCommas(const std::string& input, const std::string& delim
 }
 
 
-int FindSum(const std::string& input){
+int FindSum(const std::string& updatedinput){
     // Creating a stringstream
     std::stringstream strstream(updatedinput);
     std::string segment;
@@ -71,9 +71,9 @@ int StringCalculator::add(const std::string& input)
     std::string delimiter = FindDelimeter(input);
 
     // Replace delimiter and newlines with commas for easy splitting
-    std::string updatedinput= ReplaceWithCommas(input,delimiter)
+    std::string updatedinput = ReplaceWithCommas(input,delimiter);
 
-    sum = FindSum(updatedinput);
+    int sum = FindSum(updatedinput);
     
     //FindNegatives(negatives);
 
