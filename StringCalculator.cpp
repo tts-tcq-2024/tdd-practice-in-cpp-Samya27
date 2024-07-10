@@ -51,7 +51,7 @@ std::string FindSum(std::stringstream& ss){
     return sum;
 }
 
-std::string FindNegatives(std::vector<int>& negatives{
+void FindNegatives(std::vector<int>& negatives{
         // If there are negative numbers, throw an exception
     if (!negatives.empty()) {
         std::stringstream ss;
