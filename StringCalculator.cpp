@@ -46,7 +46,6 @@ int FindSum(const std::string& updatedinput){
     std::stringstream strstream(updatedinput);
     std::string segment;
     int sum = 0;
-    std::vector<int> negatives;
 
     while (std::getline(strstream, segment, ',')) {
         int number = std::stoi(segment);
