@@ -77,29 +77,8 @@ int StringCalculator::add(const std::string& input)
     std::stringstream ss(updatedinput);
 
     sum = FindSum(ss);
-    // std::string segment;
-    // int sum = 0;
-    // std::vector<int> negatives;
-
-    // while (std::getline(ss, segment, ',')) {
-    //     int number = std::stoi(segment);
-    //     if (number < 0) {
-    //         negatives.push_back(number);
-    //     } else if (number <= 1000) {
-    //         sum += number;
-    //     }
-    // }
 
     FindNegatives(negatives);
-    // // If there are negative numbers, throw an exception
-    // if (!negatives.empty()) {
-    //     std::stringstream ss;
-    //     ss << "negatives not allowed:";
-    //     for (int num : negatives) {
-    //         ss << " " << num;
-    //     }
-    //     throw std::invalid_argument(ss.str());
-    // }
 
     return sum;
 }
