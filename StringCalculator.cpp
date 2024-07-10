@@ -2,6 +2,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <vector>
+#include <algorithm>
 #include "StringCalculator.h"
 
 std::string FindDelimeter(const std::string& input)
