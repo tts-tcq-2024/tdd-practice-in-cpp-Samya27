@@ -25,15 +25,20 @@ std::string FindDelimeter(const std::string& input)
 std::string ReplaceWithCommas(const std::string& input, const std::string& delimiter)
 {
     std::string numbersStr = input;
-    // Replace delimiter and newlines with commas for easy splitting
-    for (char& c : numbersStr) {
-        if (c == '\n' || c == delimiter[0]) {
-            c = ',';
-        }
-    }
+    // Replace delimiter characters and newlines with commas
+    std::replace_if(numbersStr.begin(), numbersStr.end(), [&](char c) {
+        return c == '\n' || delimiter.find(c) != std::string::npos;
+    }, ',');
     return numbersStr;
 }
 
+void FindNegative(int number)
+{
+    if (number < 0) 
+    {
+    throw std::runtime_error("negatives not allowed");
+    }
+}
 
 int FindSum(const std::string& updatedinput){
     // Creating a stringstream
@@ -44,9 +49,8 @@ int FindSum(const std::string& updatedinput){
 
     while (std::getline(strstream, segment, ',')) {
         int number = std::stoi(segment);
-        if (number < 0) {
-            throw std::runtime_error("negatives not allowed");
-        } else if (number <= 1000) {
+        FindNegative(number);
+        if (number <= 1000) {
             sum += number;
         }
     }
