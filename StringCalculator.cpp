@@ -5,6 +5,16 @@
 #include <algorithm>
 #include "StringCalculator.h"
 
+std::string ReplaceWithCommas(const std::string& input, const std::string& delimiter)
+{
+    std::string numbersStr = input;
+    // Replace delimiter characters and newlines with commas
+    std::replace_if(numbersStr.begin(), numbersStr.end(), [&](char c) {
+        return c == '\n' || delimiter.find(c) != std::string::npos;
+    }, ',');
+    return numbersStr;
+}
+
 std::string FindDelimeter(const std::string& input)
 {
     // Determine delimiter and numbers part
@@ -22,17 +32,6 @@ std::string FindDelimeter(const std::string& input)
     numbersStr = ReplaceWithCommas(numbersStr, delimiter);
     return numbersStr;
 }
-
-std::string ReplaceWithCommas(const std::string& input, const std::string& delimiter)
-{
-    std::string numbersStr = input;
-    // Replace delimiter characters and newlines with commas
-    std::replace_if(numbersStr.begin(), numbersStr.end(), [&](char c) {
-        return c == '\n' || delimiter.find(c) != std::string::npos;
-    }, ',');
-    return numbersStr;
-}
-
 void FindNegatives(const std::string& updatedinput)
 {
     std::stringstream strstream(updatedinput);
