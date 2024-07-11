@@ -1,4 +1,9 @@
 #include <gtest/gtest.h>
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
+#include <vector>
+#include <algorithm>
 #include "StringCalculator.h"
 
 TEST(StringCalculatorAddTests, ExpectZeroForEmptyInput) {
