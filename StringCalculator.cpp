@@ -33,7 +33,7 @@ std::string ReplaceWithCommas(const std::string& input, const std::string& delim
     return numbersStr;
 }
 
-void FindNegative(const std::string& updatedinput)
+void FindNegatives(const std::string& updatedinput)
 {
     std::stringstream strstream(updatedinput);
     std::string segment;
