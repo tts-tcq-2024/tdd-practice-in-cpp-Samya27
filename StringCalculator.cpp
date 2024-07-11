@@ -19,8 +19,8 @@ std::string FindDelimeter(const std::string& input)
             numbersStr = input.substr(delimiterPos + 1);
         }
     }
-    input = ReplaceWithCommas(numbersStr, delimiter);
-    return input;
+    numbersStr = ReplaceWithCommas(numbersStr, delimiter);
+    return numbersStr;
 }
 
 std::string ReplaceWithCommas(const std::string& input, const std::string& delimiter)
