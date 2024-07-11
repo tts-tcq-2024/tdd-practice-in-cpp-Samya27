@@ -19,8 +19,8 @@ std::string FindDelimeter(const std::string& input)
             numbersStr = input.substr(delimiterPos + 1);
         }
     }
-    return delimiter;
-
+    input = ReplaceWithCommas(numbersStr, delimiter);
+    return input;
 }
 
 std::string ReplaceWithCommas(const std::string& input, const std::string& delimiter)
@@ -68,10 +68,10 @@ int StringCalculator::add(const std::string& input)
   if (input.empty()) {
         return 0;
     }
-    std::string delimiter = FindDelimeter(input);
+    std::string updatedinput = FindDelimeter(input);
 
     // Replace delimiter and newlines with commas for easy splitting
-    std::string updatedinput = ReplaceWithCommas(input,delimiter);
+    //std::string updatedinput = ReplaceWithCommas(input,delimiter);
 
     int sum = FindSum(updatedinput);
     
